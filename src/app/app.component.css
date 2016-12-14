@@ -62,7 +62,6 @@ html, body {
   background: -webkit-linear-gradient(top,  #a9db80 0%,#96c56f 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom,  #a9db80 0%,#96c56f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 ); /* IE6-9 */
-  padding: 15px;
 }
 
 .section2 {
@@ -71,7 +70,6 @@ html, body {
   background: -webkit-linear-gradient(top,  #00b7ea 0%,#009ec3 100%);
   background: linear-gradient(to bottom,  #00b7ea 0%,#009ec3 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
-  padding: 15px;
 }
 
 .page_1 {
@@ -81,20 +79,22 @@ html, body {
 }
 
 .floating_img_container {
-  background-color: #fff;
   border: #000 1px solid;
   padding: 15px;
   width: 320px;
-  max-width: calc(100% - 32px);
-  max-height: calc(100% - 32px);
+  max-width: calc(100% - 90px);
+  max-height: calc(100% - 100px);
   min-width: 100px;
   min-height: 115px;
   position: relative;
   background: url(assets/img/resize_icon.png);
+  background-color: #fff;
   background-repeat: no-repeat;
   background-position: calc(100% - 3px) calc(100% - 3px);
   background-size: 12px;
   transition: all 0.3s linear;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 .floating_img_container_handle_info {
