@@ -95,7 +95,7 @@ html, body {
   padding: 15px;
 }
 
-.add_btn {
+.img_control_btn {
   margin: 15px;
   text-transform: uppercase;
 }
@@ -103,11 +103,11 @@ html, body {
 .floating_img_container {
   border: #000 1px solid;
   padding: 15px 0;
-  width: 320px;
+  width: 275px;
   max-width: calc(100% - 90px);
   max-height: calc(100% - 100px);
   min-width: 100px;
-  min-height: 115px;
+  min-height: 130px;
   position: relative;
   /* For an icon in the bottom left of the resizable element (it has an issue though, it overlaps the browser's standard resize symbol) */
   /*
@@ -142,6 +142,7 @@ html, body {
 
 .floating_img_container_cell {
   margin-bottom: 15px;
+  min-width: 115px;
 }
 .floating_img {
   max-width: 96px;
@@ -155,7 +156,7 @@ html, body {
   }
 
   .floating_img_container {
-    min-width: 250px;
+    min-width: 275px;
   }
 }
 
