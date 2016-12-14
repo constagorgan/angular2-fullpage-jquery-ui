@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "OpenSans Bold";
+  src: url("assets/fonts/OpenSans-Bold.ttf"); }
+@font-face {
+  font-family: "OpenSans BoldItalic";
+  src: url("assets/fonts/OpenSans-BoldItalic.ttf"); }
+@font-face {
+  font-family: "OpenSans ExtraBold";
+  src: url("assets/fonts/OpenSans-ExtraBold.ttf"); }
+@font-face {
+  font-family: "OpenSans ExtraBoldItalic";
+  src: url("assets/fonts/OpenSans-ExtraBoldItalic.ttf"); }
+@font-face {
+  font-family: "OpenSans Italic";
+  src: url("assets/fonts/OpenSans-Italic.ttf"); }
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("assets/fonts/OpenSans-Light.ttf"); }
+@font-face {
+  font-family: "OpenSans LightItalic";
+  src: url("assets/fonts/OpenSans-LightItalic.ttf"); }
+@font-face {
+  font-family: "OpenSans Regular";
+  src: url("assets/fonts/OpenSans-Regular.ttf"); }
+@font-face {
+  font-family: "OpenSans Semibold";
+  src: url("assets/fonts/OpenSans-Semibold.ttf"); }
+@font-face {
+  font-family: "OpenSans SemiboldItalic";
+  src: url("assets/fonts/OpenSans-SemiboldItalic.ttf"); }
+
+* {
+  font-family: "OpenSans Regular";
+  line-height: 100%;
+  color: #fff;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fp-tableCell {
+  vertical-align: baseline;
+}
+
+.no_xs {
+  display: none;
+}
+
+.box_shadow {
+  -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+  box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.3);
+}
+
+.section1 {
+  background: #a9db80; /* Old browsers */
+  background: -moz-linear-gradient(top,  #a9db80 0%, #96c56f 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #a9db80 0%,#96c56f 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #a9db80 0%,#96c56f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 ); /* IE6-9 */
+  padding: 15px;
+}
+
+.section2 {
+  background: #00b7ea;
+  background: -moz-linear-gradient(top,  #00b7ea 0%, #009ec3 100%);
+  background: -webkit-linear-gradient(top,  #00b7ea 0%,#009ec3 100%);
+  background: linear-gradient(to bottom,  #00b7ea 0%,#009ec3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+  padding: 15px;
+}
+
+.page_1 {
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  padding: 15px;
+}
+
+.floating_img_container {
+  background-color: #fff;
+  border: #000 1px solid;
+  padding: 15px;
+  width: 320px;
+  max-width: calc(100% - 32px);
+  max-height: calc(100% - 32px);
+  min-width: 100px;
+  min-height: 115px;
+  position: relative;
+  background: url(assets/img/resize_icon.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 3px) calc(100% - 3px);
+  background-size: 12px;
+  transition: all 0.3s linear;
+}
+
+.floating_img_container_handle_info {
+  position: absolute;
+  bottom: 4px;
+  right: 24px;
+  font-size: 14px;
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "OpenSans Light";
+}
+.floating_img_container_handle_info.bump_to_left {
+  right: 125px;
+}
+
+.floating_img_container_cell {
+  width: 96px;
+  height: 96px;
+  border: solid 2px #77dd77;
+}
+.floating_img {
+  max-width: 96px;
+  max-height: 96px;
+}
+
+@media (min-width: 768px) {
+  .no_xs {
+    display: inline-block;
+  }
+  
+  .floating_img_container {
+    min-width: 250px; 
+  }
+}
+
