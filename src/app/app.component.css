@@ -124,9 +124,9 @@ html, body {
   .no_xs {
     display: inline-block;
   }
-  
+
   .floating_img_container {
-    min-width: 250px; 
+    min-width: 250px;
   }
 }
 
