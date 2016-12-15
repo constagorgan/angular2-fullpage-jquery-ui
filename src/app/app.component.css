@@ -42,6 +42,11 @@ html, body {
   height: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 100%;
+}
+
 .fp-tableCell {
   vertical-align: baseline;
 }
@@ -93,6 +98,11 @@ html, body {
   width: calc(100% - 30px);
   height: calc(100% - 30px);
   padding: 15px;
+}
+
+.floating_imgs_h1 {
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 .img_control_btn {
@@ -151,6 +161,11 @@ html, body {
   left: 50%;
   position: relative;
   transform: translate(-50%, 0);
+}
+
+.filling_imgs_h1 {
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 @media (min-width: 768px) {
