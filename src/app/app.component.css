@@ -64,8 +64,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+.font_style_italic {
+  font-style: italic;
+}
+
 .give_me_some_space {
   margin: 15px;
+}
+
+.go_to_the_right_bro {
+  margin-right: 15px;
 }
 
 .no_xs {
@@ -168,6 +176,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 15px;
 }
 
+.filling_imgs_p {
+  margin: 5px 15px 15px 15px;
+  
+}
+
 .filling_img_container {
   margin-top: 15px;
   margin-left: 15px;
@@ -181,6 +194,11 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: 64px;
+}
+
+.filling_imgs_btns {
+  margin-top: 10px;
+  width: calc(50% - 10px);
 }
 
 @media (min-width: 768px) {

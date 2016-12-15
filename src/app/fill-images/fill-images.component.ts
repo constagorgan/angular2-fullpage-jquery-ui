@@ -9,7 +9,7 @@ declare var jQuery:any;
 export class FillImagesComponent implements OnInit {
   @ViewChild('horizontalResizableDiv') horizontalResizableDiv;
   
-//  images = [ '1.png' ];
+  images = [ '1.png' ];
   minWidth = 64;
   minHeight = 64;
 
@@ -17,4 +17,36 @@ export class FillImagesComponent implements OnInit {
     jQuery(this.horizontalResizableDiv.nativeElement).resizable({ handles: 'e' });
   }
 
+  addLena() {
+    
+  }
+  
+  addKenny() {
+    
+  }
+  
+  addCartman() {
+    
+  }
+  
+  addTall() {
+    
+  }
+  
+  removeLena() {
+    
+  }
+  
+  removeKenny() {
+    
+  }
+  
+  removeCartman() {
+    
+  }
+  
+  removeTall() {
+    
+  }
+  
 }

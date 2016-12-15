@@ -1,3 +1,26 @@
 <h1 class="filling_imgs_h1">Filling images</h1>
+<p class="filling_imgs_p font_style_italic">only for big screens (> 768px)</p>
+
+<div class="col-xs-12 col-sm-6">
+  <button (click)="addLena()" class="btn btn-success col-xs-6 col-sm-6 filling_imgs_btns go_to_the_right_bro"><span class="font_weight_bold">✚</span> Add <span class="font_style_italic">lena.jpg</span> (256 x 256)</button>
+  <button (click)="removeLena()" class="btn btn-danger col-xs-6 col-sm-6 filling_imgs_btns"><span class="font_weight_bold">✖</span> Remove <span class="font_style_italic">lena.jpg</span></button>
+</div>
+<div class="clearfix"></div>
+<div class="col-xs-12 col-sm-6">
+  <button (click)="addKenny()" class="btn btn-success col-xs-6 col-sm-6 filling_imgs_btns go_to_the_right_bro"><span class="font_weight_bold">✚</span> Add <span class="font_style_italic">kenny.png</span> (128 x 128)</button>
+  <button (click)="removeKenny()" class="btn btn-danger col-xs-6 col-sm-6 filling_imgs_btns"><span class="font_weight_bold">✖</span> Remove <span class="font_style_italic">kenny.png</span></button>
+</div>
+<div class="clearfix"></div>
+<div class="col-xs-12 col-sm-6">
+  <button (click)="addCartman()" class="btn btn-success col-xs-6 col-sm-6 filling_imgs_btns go_to_the_right_bro"><span class="font_weight_bold">✚</span> Add <span class="font_style_italic">cartman.png</span> (300 x 275)</button>
+  <button (click)="removeCartman()" class="btn btn-danger col-xs-6 col-sm-6 filling_imgs_btns"><span class="font_weight_bold">✖</span> Remove <span class="font_style_italic">cartman.png</span></button>
+</div>
+<div class="clearfix"></div>
+<div class="col-xs-12 col-sm-6">
+  <button (click)="addTall()" class="btn btn-success col-xs-6 col-sm-6 filling_imgs_btns go_to_the_right_bro"><span class="font_weight_bold">✚</span> Add <span class="font_style_italic">tall.jpg</span> (426 x 631)</button>
+  <button (click)="removeTall()" class="btn btn-danger col-xs-6 col-sm-6 filling_imgs_btns"><span class="font_weight_bold">✖</span> Remove <span class="font_style_italic">tall.jpg</span></button>
+</div>
+<div class="clearfix"></div>
+
 
 <div #horizontalResizableDiv id="filling_img_container_resizable" class="filling_img_container box_shadow ui-widget-content row" [style.min-width]="minWidth + 'px'" [style.min-height]="minHeight + 'px'"></div>
