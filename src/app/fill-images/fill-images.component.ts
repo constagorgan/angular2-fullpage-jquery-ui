@@ -9,7 +9,7 @@ declare var jQuery:any;
 export class FillImagesComponent implements OnInit {
   @ViewChild('horizontalResizableDiv') horizontalResizableDiv;
   
-  images = [ '1.png' ];
+//  images = [ '1.png' ];
   minWidth = 64;
   minHeight = 64;
 
