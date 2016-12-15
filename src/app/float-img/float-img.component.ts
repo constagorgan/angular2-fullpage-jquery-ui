@@ -22,10 +22,17 @@ export class FloatImgComponent implements OnInit, AfterViewInit {
   }
   
   addRandomImg() {
-    this.images.push(Math.floor(Math.random()*29+1)+'.png');    
-    this.minWidth = (this.images.length > 1) && (this.images.length <= 6) ? this.minWidth + 100 : this.minWidth;
-    let noOfRows = this.computeNoOfRows(6);
-    this.minHeight = noOfRows > 1 ? noOfRows * 115 + 15 : 130;
+    if (window.innerWidth < 768) {
+      this.images.push(Math.floor(Math.random()*29+1)+'.png');    
+//      this.minWidth = (this.images.length > 1) && (this.images.length <= 2) ? this.minWidth + 100 : this.minWidth;
+      let noOfRows = this.computeNoOfRows(2);
+      this.minHeight = noOfRows > 1 ? noOfRows * 115 + 15 : 130;
+    } else {
+      this.images.push(Math.floor(Math.random()*29+1)+'.png');    
+      this.minWidth = (this.images.length > 1) && (this.images.length <= 6) ? this.minWidth + 100 : this.minWidth;
+      let noOfRows = this.computeNoOfRows(6);
+      this.minHeight = noOfRows > 1 ? noOfRows * 115 + 15 : 130;
+    }
   }
   
   popImg() {

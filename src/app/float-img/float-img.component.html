@@ -2,7 +2,7 @@
 <button (click)="popImg()" class="btn btn-danger give_me_some_space img_control_btn"><span class="font_weight_bold">-</span> Remove image</button>
 
 <div #resizableDiv id="floating_img_container_resizable" class="floating_img_container box_shadow ui-widget-content row" [style.min-width]="minWidth + 'px'" [style.min-height]="minHeight + 'px'">
-  <div *ngFor="let image of images" class="floating_img_container_cell col-xs-2 col-sm-2 col-md-2 col-lg-2">
+  <div *ngFor="let image of images" class="floating_img_container_cell col-xs-6 col-sm-2 col-md-2 col-lg-2">
     <img class="floating_img" src="assets/img/floating_imgs/{{ image }}" alt="image1">
   </div>
   <span class="floating_img_container_handle_info bump_to_left no_xs no_select">resizable component - </span><span class="floating_img_container_handle_info no_select">drag the edges</span>

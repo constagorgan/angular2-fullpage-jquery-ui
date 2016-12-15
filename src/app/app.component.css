@@ -103,7 +103,7 @@ html, body {
 .floating_img_container {
   border: #000 1px solid;
   padding: 15px 0;
-  width: 275px;
+  width: 100px;
   max-width: calc(100% - 90px);
   max-height: calc(100% - 100px);
   min-width: 100px;
@@ -148,6 +148,9 @@ html, body {
   max-width: 96px;
   max-height: 96px;
   border: solid 2px #77dd77;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, 0);
 }
 
 @media (min-width: 768px) {
@@ -156,6 +159,7 @@ html, body {
   }
 
   .floating_img_container {
+    width: 275px;
     min-width: 275px;
   }
 }
