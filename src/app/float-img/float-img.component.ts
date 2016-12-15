@@ -16,9 +16,8 @@ export class FloatImgComponent implements OnInit, AfterViewInit {
   // Usage of jQuery-ui resizable function
   ngOnInit() {
     jQuery(this.resizableDiv.nativeElement).resizable();
-
   }
-  // This is only for test purposes
+  // This is only for testing purposes
   ngAfterViewInit() {
   // jQuery(this.resizableDiv.nativeElement).resizable();
   }
