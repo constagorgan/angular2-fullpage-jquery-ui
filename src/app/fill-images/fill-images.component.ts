@@ -1,4 +1,5 @@
 import { ViewChild, Component, OnInit } from '@angular/core';
+import { ImageModel } from '../models/image.model';
 declare var jQuery:any;
 
 @Component({
@@ -9,7 +10,7 @@ declare var jQuery:any;
 export class FillImagesComponent implements OnInit {
   @ViewChild('horizontalResizableDiv') horizontalResizableDiv;
   
-  images = [ '1.png' ];
+  images = [];
   minWidth = 64;
   minHeight = 64;
 
@@ -17,36 +18,34 @@ export class FillImagesComponent implements OnInit {
     jQuery(this.horizontalResizableDiv.nativeElement).resizable({ handles: 'e' });
   }
 
-  addLena() {
-    
+  addImg(imageName) {
+    this.images.push(imageName);
+  }
+  removeImg(imageName) {
+    this.removeItem(this.images, imageName);
   }
   
-  addKenny() {
+  orderByFileSize() {
     
   }
-  
-  addCartman() {
+  orderByImgArea() {
     
   }
-  
-  addTall() {
+  takeSmallestHeight() {
     
   }
-  
-  removeLena() {
+  takeBiggestHeight() {
     
   }
-  
-  removeKenny() {
-    
+   
+  removeItem(imageArray, item) {
+    var index = imageArray.indexOf(item);
+    imageArray.splice(index, 1);
   }
   
-  removeCartman() {
-    
+  // Blurs Bootstrap button after click
+  deselectBtn() {
+    jQuery('.btn').blur();
   }
-  
-  removeTall() {
-    
-  }
-  
+   
 }

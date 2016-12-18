@@ -1,7 +1,7 @@
 <h1 class="floating_imgs_h1">Floating images</h1>
 
-<button (click)="addRandomImg()" class="btn btn-primary give_me_some_space img_control_btn"><span class="font_weight_bold">✚</span> Add image</button>
-<button (click)="popImg()" class="btn btn-danger give_me_some_space img_control_btn"><span class="font_weight_bold">✖</span> Remove image</button>
+<button (click)="addRandomImg()" (click)="deselectBtn()" class="btn btn-primary give_me_some_space img_control_btn"><span class="font_weight_bold">✚</span> Add image</button>
+<button (click)="popImg()" (click)="deselectBtn()" class="btn btn-danger give_me_some_space img_control_btn"><span class="font_weight_bold">✖</span> Remove image</button>
 
 <div #resizableDiv id="floating_img_container_resizable" class="floating_img_container box_shadow ui-widget-content row" [style.min-width]="minWidth + 'px'" [style.min-height]="minHeight + 'px'">
   <div *ngFor="let image of images; let name; let i = index;" class="floating_img_container_cell col-xs-6 col-sm-2 col-md-2 col-lg-2">

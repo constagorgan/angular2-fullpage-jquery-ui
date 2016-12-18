@@ -60,5 +60,10 @@ export class FloatImgComponent implements OnInit, AfterViewInit {
   private computeNoOfRows(elemsOnRow) {
     return Math.ceil(this.images.length / elemsOnRow);
   }
+  
+  // Blurs Bootstrap button after click
+  deselectBtn() {
+    jQuery('.btn').blur();
+  }
 
 }
