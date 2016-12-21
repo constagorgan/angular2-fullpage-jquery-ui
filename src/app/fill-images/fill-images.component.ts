@@ -1,5 +1,8 @@
 import { ViewChild, Component, OnInit } from '@angular/core';
 import { ImageModel } from '../models/image.model';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise'
+
 declare var jQuery:any;
 
 @Component({
@@ -10,6 +13,9 @@ declare var jQuery:any;
 export class FillImagesComponent implements OnInit {
   @ViewChild('horizontalResizableDiv') horizontalResizableDiv;
   
+  constructor(private http: Http) {
+    
+  }
   images = [];
   minWidth = 64;
   minHeight = 64;
@@ -19,17 +25,25 @@ export class FillImagesComponent implements OnInit {
   }
 
   addImg(imageName) {
-    this.images.push(imageName);
+    
+    this.http.get(`/assets/img/filling_imgs/${imageName}`).toPromise().then(response => {
+      this.images.push(response.arrayBuffer());
+    });
   }
   removeImg(imageName) {
     this.removeItem(this.images, imageName);
   }
   
   orderByFileSize() {
-    
+    jQuery('.filling_img_container').find('img').each(function() {
+      
+    })
   }
   orderByImgArea() {
-    
+    jQuery('.filling_img_container').find('img').each(function() {
+      var area = parseInt(jQuery(this).innerWidth) * parseInt(jQuery(this).innerHeight)
+      console.log(area)
+    })
   }
   takeSmallestHeight() {
     

@@ -8,13 +8,15 @@ import { FloatImgComponent } from './float-img/float-img.component';
 
 import { MnFullpageDirective, MnFullpageService } from "ng2-fullpage";
 import { FillImagesComponent } from './fill-images/fill-images.component';
+import { FloatImgSecondComponent } from './float-img-second/float-img-second.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FloatImgComponent,
     MnFullpageDirective,
-    FillImagesComponent
+    FillImagesComponent,
+    FloatImgSecondComponent,
   ],
   imports: [
     BrowserModule,
