@@ -17,7 +17,7 @@ export class FloatImgSecondComponent implements OnInit {
   ngOnInit() {
     jQuery(this.resizableDivSecond.nativeElement).resizable()
   }
-  // This is only for testing purposes
+  // The most efficient way to bind a resize listener on #floating_img_container_resizable_second element
   ngAfterViewInit() {
     var self = this
     var observer = new MutationObserver(function(mutations) {
@@ -25,7 +25,6 @@ export class FloatImgSecondComponent implements OnInit {
         self.computeContainerMinHeight()
       })    
     })
-
     var target = document.getElementById('floating_img_container_resizable_second');
     observer.observe(target, { attributes : true, attributeFilter : ['style'] })
   }
@@ -34,35 +33,46 @@ export class FloatImgSecondComponent implements OnInit {
   addRandomImg() {
     // Add a random image to the "images" array
     this.images.push(Math.floor(Math.random() * 29 + 1) + '.png')
-    
     this.computeContainerMinHeight()
   }  
   // Takes out the last added image when "- REMOVE IMAGE" button is clicked
   popImg() {
     // "Pop" comes from "Popeye" that comes in angry when the button is pressed, and kicks out the last added element in the array (after it eats its spinach of course)
     this.images.pop()
-   
     this.computeContainerMinHeight()
   }
   // For the sake of simplicity
   private computeNoOfRows(elemsOnRow) {
     return Math.ceil(this.images.length / elemsOnRow)
   }
-  
+   
+  // This is mathematical wizardry. It's a speel that magically computes the needed min-height for the images's container
   computeContainerMinHeight() {
-    // This is mathematical wizardry. It's a speel that magically computes the needed min-height for the images's container
-    var noOfRowsNeeded = Math.ceil((this.images.length * 97 + 29) / ($('.floating_img_container_second').width() + 31))
-    this.minHeight = noOfRowsNeeded * 115 + 15
-//    this.minHeight = Math.ceil((this.images.length * 97 + 30) / ($('.floating_img_container_second').width() + 31)) * 115 + 15
-    
-    console.log('Number of rows needed: ' + noOfRowsNeeded)
+    this.minHeight = this.getNoOfRowsRequired() * 115 + 15
+  }
+  
+  // Returns number of rows required to fit the images correctly
+  getNoOfRowsRequired() {
+    var elementWidth = 97
+    var containerSidePadding = 29
+    var spaceOccupiedByImages = this.images.length * elementWidth + containerSidePadding
+    var totalWidthOfImagesContainer = $('.floating_img_container_second').width() + 31
+    var noOfRowsRequired = Math.ceil(spaceOccupiedByImages / totalWidthOfImagesContainer)
+    console.log('Number of rows required: ' + noOfRowsRequired)
+    return noOfRowsRequired
   }
    
+   // trebuie implementata asta pentru a putea fi rezolvate restul
+//  getNoOfCols() {
+//    var noOfImagesOverRows = Math.floor(this.images.length / this.getNoOfRowsRequired())
+//    console.log('Number of cols:' + noOfImagesOverRows)
+//    var noOfCols = Math.ceil(this.images.length / this.getNoOfRowsRequired())
+//    return noOfCols
+//  } 
+//   
   // Blurs Bootstrap button after click
   deselectBtn() {
     jQuery('.btn').blur()
   }
-   
-
 
 }
