@@ -7,63 +7,62 @@ declare var jQuery:any;
   styleUrls: ['./float-img-second.component.css']
 })
 export class FloatImgSecondComponent implements OnInit {
-  @ViewChild('resizableDivSecond') resizableDiv;
+  @ViewChild('resizableDivSecond') resizableDivSecond;
   
-  images = [ '1.png' ];
-  minWidth = 225;
-  minHeight = 130;
+  images = [ '1.png' ]
+  minWidth = 225
+  minHeight = 130
 
   // Usage of jQuery-ui resizable function
   ngOnInit() {
-    jQuery(this.resizableDiv.nativeElement).resizable();
+    jQuery(this.resizableDivSecond.nativeElement).resizable()
   }
   // This is only for testing purposes
   ngAfterViewInit() {
-  // jQuery(this.resizableDiv.nativeElement).resizable();
+    var self = this
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutationRecord) {
+        self.computeContainerMinHeight()
+      })    
+    })
+
+    var target = document.getElementById('floating_img_container_resizable_second');
+    observer.observe(target, { attributes : true, attributeFilter : ['style'] })
   }
   
   // Adds random image when "+ ADD IMAGE" button is clicked
   addRandomImg() {
     // Add a random image to the "images" array
-    this.images.push(Math.floor(Math.random()*29+1)+'.png');
-    // This condition checks your window width in order to compute the resizable limits in regard to it
-    if (window.innerWidth < 768) {
-      // The 2 lines below ↓ compute the minimum height for the resizable div
-      let noOfRows = this.computeNoOfRows(2);
-      this.minHeight = noOfRows > 1 ? noOfRows * 115 + 15 : 130;
-    } else {
-      // This ↓ decides the minimum width for the resizable div (this is optional for "< 768" devices, but mandatory for small, medium & large screens)
-      this.minWidth = (this.images.length > 2) && (this.images.length <= 6) ? this.minWidth + 97 : this.minWidth;
-      // The 2 lines below ↓ compute the minimum height for the resizable div
-      let noOfRows = this.computeNoOfRows(6);
-      this.minHeight = noOfRows > 1 ? noOfRows * 115 + 15 : 130;
-    }
+    this.images.push(Math.floor(Math.random() * 29 + 1) + '.png')
+    
+    this.computeContainerMinHeight()
   }  
   // Takes out the last added image when "- REMOVE IMAGE" button is clicked
   popImg() {
     // "Pop" comes from "Popeye" that comes in angry when the button is pressed, and kicks out the last added element in the array (after it eats its spinach of course)
-    this.images.pop();
-    // This condition checks your window width in order to compute the resizable limits in regard to it
-    if (window.innerWidth < 768) {
-      // The 2 lines below ↓ compute the minimum height for the resizable div
-      let noOfRows = this.computeNoOfRows(2);
-      this.minHeight = (noOfRows > 1) ? noOfRows * 115 + 15 : 130;
-    } else {
-      // This ↓ decides the minimum width for the resizable div
-      this.minWidth = ((this.images.length >= 2) && (this.images.length < 6)) ? this.minWidth - 97 : this.minWidth;
-      // The 2 lines below ↓ compute the minimum height for the resizable div
-      let noOfRows = this.computeNoOfRows(6);
-      this.minHeight = (noOfRows > 1) ? noOfRows * 115 + 15 : 130;
-    }
+    this.images.pop()
+   
+    this.computeContainerMinHeight()
   }
   // For the sake of simplicity
   private computeNoOfRows(elemsOnRow) {
-    return Math.ceil(this.images.length / elemsOnRow);
+    return Math.ceil(this.images.length / elemsOnRow)
   }
   
+  computeContainerMinHeight() {
+    // This is mathematical wizardry. It's a speel that magically computes the needed min-height for the images's container
+    var noOfRowsNeeded = Math.ceil((this.images.length * 97 + 29) / ($('.floating_img_container_second').width() + 31))
+    this.minHeight = noOfRowsNeeded * 115 + 15
+//    this.minHeight = Math.ceil((this.images.length * 97 + 30) / ($('.floating_img_container_second').width() + 31)) * 115 + 15
+    
+    console.log('Number of rows needed: ' + noOfRowsNeeded)
+  }
+   
   // Blurs Bootstrap button after click
   deselectBtn() {
-    jQuery('.btn').blur();
+    jQuery('.btn').blur()
   }
+   
+
 
 }

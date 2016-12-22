@@ -25,7 +25,7 @@ export class FloatImgComponent implements OnInit, AfterViewInit {
   // Adds random image when "+ ADD IMAGE" button is clicked
   addRandomImg() {
     // Add a random image to the "images" array
-    this.images.push(Math.floor(Math.random()*29+1)+'.png');
+    this.images.push(Math.floor(Math.random() * 29 + 1) + '.png');
     // This condition checks your window width in order to compute the resizable limits in regard to it
     if (window.innerWidth < 768) {
       // The 2 lines below ↓ compute the minimum height for the resizable div
