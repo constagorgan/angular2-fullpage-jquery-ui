@@ -46,7 +46,7 @@ export class FloatImgSecondComponent implements OnInit {
     return Math.ceil(this.images.length / elemsOnRow)
   }
    
-  // This is mathematical wizardry. It's a speel that magically computes the needed min-height for the images's container
+  // This is mathematical wizardry. It's a spell that magically computes the needed min-height for the images's container
   computeContainerMinHeight() {
     this.minHeight = this.getNoOfRowsRequired() * 115 + 15
   }
@@ -56,20 +56,15 @@ export class FloatImgSecondComponent implements OnInit {
     var elementWidth = 97
     var containerSidePadding = 29
     var spaceOccupiedByImages = this.images.length * elementWidth + containerSidePadding
-    var totalWidthOfImagesContainer = $('.floating_img_container_second').width() + 31
-    var noOfRowsRequired = Math.ceil(spaceOccupiedByImages / totalWidthOfImagesContainer)
-    console.log('Number of rows required: ' + noOfRowsRequired)
+    // console.log('Space occupied by the images: ' + spaceOccupiedByImages)
+    var totalWidthOfImagesContainer = $('.floating_img_container_second').width()
+    var floorOfTotalWidthOfImagesContainer = (Math.floor(totalWidthOfImagesContainer / elementWidth) * elementWidth) - 2
+    // Mathemagic
+    var noOfRowsRequired = Math.ceil(spaceOccupiedByImages / floorOfTotalWidthOfImagesContainer)
+    // console.log('Number of rows required: ' + noOfRowsRequired)
     return noOfRowsRequired
   }
-   
-   // trebuie implementata asta pentru a putea fi rezolvate restul
-//  getNoOfCols() {
-//    var noOfImagesOverRows = Math.floor(this.images.length / this.getNoOfRowsRequired())
-//    console.log('Number of cols:' + noOfImagesOverRows)
-//    var noOfCols = Math.ceil(this.images.length / this.getNoOfRowsRequired())
-//    return noOfCols
-//  } 
-//   
+
   // Blurs Bootstrap button after click
   deselectBtn() {
     jQuery('.btn').blur()
