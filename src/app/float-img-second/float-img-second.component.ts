@@ -12,6 +12,10 @@ export class FloatImgSecondComponent implements OnInit {
   images = [ '1.png' ]
   minWidth = 225
   minHeight = 130
+  containerCellWidth = 100
+  
+  readonly elementWidth = 97
+  readonly containerSidePadding = 29
 
   // Usage of jQuery-ui resizable function
   ngOnInit() {
@@ -19,13 +23,13 @@ export class FloatImgSecondComponent implements OnInit {
   }
   // The most efficient way to bind a resize listener on #floating_img_container_resizable_second element
   ngAfterViewInit() {
-    var self = this
-    var observer = new MutationObserver(function(mutations) {
+    let self = this
+    let observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
-        self.computeContainerMinHeight()
+        self.doTheMath()
       })    
     })
-    var target = document.getElementById('floating_img_container_resizable_second');
+    let target = document.getElementById('floating_img_container_resizable_second');
     observer.observe(target, { attributes : true, attributeFilter : ['style'] })
   }
   
@@ -33,13 +37,13 @@ export class FloatImgSecondComponent implements OnInit {
   addRandomImg() {
     // Add a random image to the "images" array
     this.images.push(Math.floor(Math.random() * 29 + 1) + '.png')
-    this.computeContainerMinHeight()
-  }  
+    this.doTheMath()
+  }
   // Takes out the last added image when "- REMOVE IMAGE" button is clicked
   popImg() {
     // "Pop" comes from "Popeye" that comes in angry when the button is pressed, and kicks out the last added element in the array (after it eats its spinach of course)
     this.images.pop()
-    this.computeContainerMinHeight()
+    this.doTheMath()
   }
   // For the sake of simplicity
   private computeNoOfRows(elemsOnRow) {
@@ -53,18 +57,32 @@ export class FloatImgSecondComponent implements OnInit {
   
   // Returns number of rows required to fit the images correctly
   getNoOfRowsRequired() {
-    var elementWidth = 97
-    var containerSidePadding = 29
-    var spaceOccupiedByImages = this.images.length * elementWidth + containerSidePadding
+    let totalWidthOfImagesContainer = $('.floating_img_container_second').width()
+    let spaceOccupiedByImages = this.images.length * this.elementWidth + this.containerSidePadding
     // console.log('Space occupied by the images: ' + spaceOccupiedByImages)
-    var totalWidthOfImagesContainer = $('.floating_img_container_second').width()
-    var floorOfTotalWidthOfImagesContainer = (Math.floor(totalWidthOfImagesContainer / elementWidth) * elementWidth) - 2
+    let floorOfTotalWidthOfImagesContainer = (Math.floor(totalWidthOfImagesContainer / this.elementWidth) * this.elementWidth) - 2
     // Mathemagic
-    var noOfRowsRequired = Math.ceil(spaceOccupiedByImages / floorOfTotalWidthOfImagesContainer)
+    let noOfRowsRequired = Math.ceil(spaceOccupiedByImages / floorOfTotalWidthOfImagesContainer)
     // console.log('Number of rows required: ' + noOfRowsRequired)
     return noOfRowsRequired
   }
+   
+  computeWidthForCellContainer() {
+    let totalWidthOfImagesContainer = $('.floating_img_container_second').width()
+    let divisionFactor = Math.floor(totalWidthOfImagesContainer / this.elementWidth)
+//    let divisionFactor = totalWidthOfImagesContainer / this.elementWidth
+    if(this.images.length >= divisionFactor) {
+      this.containerCellWidth = 100 / divisionFactor
+    } else {
+      this.containerCellWidth = 100 / this.images.length
+    }
+  }
 
+  doTheMath() {
+    this.computeContainerMinHeight()
+    this.computeWidthForCellContainer()
+  }
+   
   // Blurs Bootstrap button after click
   deselectBtn() {
     jQuery('.btn').blur()
