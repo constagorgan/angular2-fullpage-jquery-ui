@@ -26,9 +26,10 @@ export class FillImagesComponent implements OnInit {
 
   addImg(imageName) {
     
-    this.http.get(`/assets/img/filling_imgs/${imageName}`).toPromise().then(response => {
-      this.images.push(response.arrayBuffer());
-    });
+//    this.http.get(`/assets/img/filling_imgs/${imageName}`).toPromise().then(response => {
+//      this.images.push(response.arrayBuffer());
+//    });
+    this.images.push(imageName)
   }
   removeImg(imageName) {
     this.removeItem(this.images, imageName);
@@ -54,7 +55,9 @@ export class FillImagesComponent implements OnInit {
    
   removeItem(imageArray, item) {
     var index = imageArray.indexOf(item);
-    imageArray.splice(index, 1);
+    if(index >= 0) {
+      imageArray.splice(index, 1);
+    }
   }
   
   // Blurs Bootstrap button after click
